@@ -19,27 +19,30 @@ Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 */
 
-import "strings"
-
-func Run(s string) {
-	_ = lengthOfLongestSubstring(s)
+func Run(s string) int {
+	return lengthOfLongestSubstring(s)
 }
 
 func lengthOfLongestSubstring(s string) int {
-	subStringLenght := 0
+	maxStringLenght := 0
+	start := 0
 
-	stringSlice := strings.Split(s, "")
+	compareMap := make(map[rune]int)
 
-	compareMap := make(map[string]bool)
-
-	for _, val := range stringSlice {
-		if _, ok := compareMap[val]; ok {
-			clear(compareMap)
-			return subStringLenght
+	for end, val := range s {
+		pos, exist := compareMap[val]
+		if exist && pos >= start {
+			//move start to next letter
+			start = pos + 1
 		}
 
-		subStringLenght++
+		tmpMax := end - start + 1
+		if tmpMax > maxStringLenght {
+			maxStringLenght = tmpMax
+		}
+
+		compareMap[val] = end
 	}
 
-	return 0
+	return maxStringLenght
 }
