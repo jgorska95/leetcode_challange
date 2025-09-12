@@ -20,17 +20,30 @@ func Run(nums1 []int, nums2 []int) float64 {
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	var retVal float64
 	workSlice := []int{}
-	copy(workSlice, nums1)
+	ptr1, ptr2 := 0, 0
 
-	//TODO: fix proper sorted array joining
-	for _, val := range nums2 {
-		workSlice = append(workSlice, val)
+	for ptr1 < len(nums1) && ptr2 < len(nums2) {
+		if nums1[ptr1] < nums2[ptr2] {
+			workSlice = append(workSlice, nums1[ptr1])
+			ptr1++
+		} else {
+			workSlice = append(workSlice, nums2[ptr2])
+			ptr2++
+		}
+	}
+
+	if ptr1 < len(nums1) {
+		workSlice = append(workSlice, nums1[ptr1:]...)
+	}
+
+	if ptr2 < len(nums2) {
+		workSlice = append(workSlice, nums2[ptr2:]...)
 	}
 
 	elem := len(workSlice) / 2
 
 	if len(workSlice)%2 != 0 {
-		return float64(workSlice[elem+1])
+		return float64(workSlice[elem])
 	}
 
 	retVal = float64(workSlice[elem-1]) + float64(workSlice[elem])
