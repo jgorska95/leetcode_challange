@@ -20,10 +20,10 @@ func TestP1(t *testing.T) {
 		{[]int{3, 3}, 6, []int{0, 1}},
 	}
 
-	for _, val := range testSet {
-		tmp := p1.Run(val.nums, val.target)
-		if slices.Equal(tmp, val.output) {
-			t.Error("Test case failed at slice: ", val.nums)
+	for key, test := range testSet {
+		tmp := p1.Run(test.nums, test.target)
+		if slices.Equal(tmp, test.output) {
+			t.Error("Test case failed at test nr: ", key)
 		}
 	}
 }
