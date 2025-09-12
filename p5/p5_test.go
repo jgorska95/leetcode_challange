@@ -20,18 +20,18 @@ Output: "bb"
 
 type DataSet struct {
 	input  string
-	output string
+	output map[string]int
 }
 
 func TestP4(t *testing.T) {
 	testSet := []DataSet{
-		{"babad", "bab"},
-		{"cbbd", "bb"},
+		{"babad", map[string]int{"bab": 1, "aba": 1}},
+		{"cbbd", map[string]int{"bb": 1}},
 	}
 
 	for key, test := range testSet {
 		tmp := p5.Run(test.input)
-		if tmp != test.output {
+		if _, ok := test.output[tmp]; !ok {
 			t.Error("Test case failed at test nr: ", key)
 		}
 	}

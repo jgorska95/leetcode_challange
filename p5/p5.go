@@ -5,5 +5,8 @@ func Run(s string) string {
 }
 
 func longestPalindrome(s string) string {
-	return s
+	maxLen := 0
+	palindromeMap := map[int]string{}
+
+	return palindromeMap[maxLen]
 }
