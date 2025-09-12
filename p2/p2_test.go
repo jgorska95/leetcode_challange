@@ -50,10 +50,10 @@ func TestP2(t *testing.T) {
 		{&p2.ListNode{9, &p2.ListNode{9, &p2.ListNode{9, &p2.ListNode{9, &p2.ListNode{9, &p2.ListNode{9, &p2.ListNode{9, nil}}}}}}}, &p2.ListNode{9, &p2.ListNode{9, &p2.ListNode{9, &p2.ListNode{9, nil}}}}, &p2.ListNode{8, &p2.ListNode{9, &p2.ListNode{9, &p2.ListNode{9, &p2.ListNode{0, &p2.ListNode{0, &p2.ListNode{0, &p2.ListNode{1, nil}}}}}}}}},
 	}
 
-	for _, val := range testSet {
-		tmp := p2.Run(val.l1, val.l2)
-		if !Equal(tmp, val.Output) {
-			t.Error("Test case failed at: ", val.Output)
+	for key, test := range testSet {
+		tmp := p2.Run(test.l1, test.l2)
+		if !Equal(tmp, test.Output) {
+			t.Error("Test case failed at test nr: ", key)
 		}
 	}
 }

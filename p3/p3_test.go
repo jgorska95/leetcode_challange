@@ -19,10 +19,10 @@ func TestP3(t *testing.T) {
 		{"dvdf", 3},
 	}
 
-	for _, val := range testSet {
-		tmp := p3.Run(val.pharse)
-		if tmp != val.expectedLen {
-			t.Error("Test case failed at: ", val.pharse)
+	for key, test := range testSet {
+		tmp := p3.Run(test.pharse)
+		if tmp != test.expectedLen {
+			t.Error("Test case failed at test nr: ", key)
 		}
 	}
 }
