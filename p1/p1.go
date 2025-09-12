@@ -15,8 +15,8 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
 */
 
-func Run(nums []int, target int) {
-	_ = twoSum(nums, target)
+func Run(nums []int, target int) []int {
+	return twoSum(nums, target)
 }
 
 func twoSum(nums []int, target int) []int {

@@ -20,8 +20,8 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func Run(l1 *ListNode, l2 *ListNode) {
-	_ = addTwoNumbers(l1, l2)
+func Run(l1 *ListNode, l2 *ListNode) *ListNode {
+	return addTwoNumbers(l1, l2)
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
