@@ -1,7 +1,6 @@
 package p54_test
 
 import (
-	"reflect"
 	"testing"
 
 	"main.go/p54"
@@ -28,10 +27,17 @@ func Test(t *testing.T) {
 		{[][]int{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}}, []int{1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7}},
 	}
 
-	for key, test := range testSet {
-		tmp := p54.Run(test.inputMatrix)
-		if reflect.DeepEqual(tmp, test.output) {
-			t.Error("Test case failed at test nr: ", key)
+	for testKey, testVal := range testSet {
+		tmp := p54.Run(testVal.inputMatrix)
+		if len(tmp) != len(testVal.output) {
+			t.Error("Test case failed at test nr: ", testKey)
+			break
+		}
+		for key, val := range tmp {
+			if val != testVal.output[key] {
+				t.Error("Test case failed at test nr: ", testKey)
+				break
+			}
 		}
 	}
 }
