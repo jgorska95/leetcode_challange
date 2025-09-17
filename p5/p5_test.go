@@ -23,7 +23,7 @@ type DataSet struct {
 	output map[string]int
 }
 
-func TestP4(t *testing.T) {
+func Test(t *testing.T) {
 	testSet := []DataSet{
 		{"babad", map[string]int{"bab": 1, "aba": 1}},
 		{"cbbd", map[string]int{"bb": 1}},
