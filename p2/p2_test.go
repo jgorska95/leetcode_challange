@@ -43,7 +43,7 @@ func Equal(c1, c2 *p2.ListNode) bool {
 	return true
 }
 
-func TestP2(t *testing.T) {
+func Test(t *testing.T) {
 	testSet := []DataSet{
 		{&p2.ListNode{2, &p2.ListNode{4, &p2.ListNode{3, nil}}}, &p2.ListNode{5, &p2.ListNode{6, &p2.ListNode{4, nil}}}, &p2.ListNode{7, &p2.ListNode{0, &p2.ListNode{8, nil}}}},
 		{&p2.ListNode{0, nil}, &p2.ListNode{0, nil}, &p2.ListNode{0, nil}},

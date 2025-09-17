@@ -11,7 +11,7 @@ type DataSet struct {
 	expectedLen int
 }
 
-func TestP3(t *testing.T) {
+func Test(t *testing.T) {
 	testSet := []DataSet{
 		{"abcabcbb", 3},
 		{"bbbbb", 1},

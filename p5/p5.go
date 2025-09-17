@@ -15,7 +15,7 @@ func longestPalindrome(s string) string {
 
 	splitString := strings.Split(s, "")
 
-	for key, _ := range splitString {
+	for key := range splitString {
 		left, right := key, key
 
 		for left >= 0 && right < len(splitString) && splitString[left] == splitString[right] {

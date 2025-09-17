@@ -25,7 +25,7 @@ type DataSet struct {
 	Output float64
 }
 
-func TestP4(t *testing.T) {
+func Test(t *testing.T) {
 	testSet := []DataSet{
 		{[]int{1, 3}, []int{2}, 2.00000},
 		{[]int{1, 2}, []int{3, 4}, 2.50000},
