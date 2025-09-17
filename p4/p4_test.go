@@ -1,7 +1,6 @@
 package p4_test
 
 import (
-	"fmt"
 	"testing"
 
 	"main.go/p4"
@@ -34,7 +33,6 @@ func TestP4(t *testing.T) {
 
 	for key, test := range testSet {
 		tmp := p4.Run(test.nums1, test.nums2)
-		fmt.Println("Output: ", tmp)
 		if tmp != test.Output {
 			t.Error("Test case failed at test nr: ", key)
 		}
