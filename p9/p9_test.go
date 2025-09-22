@@ -33,6 +33,7 @@ func Test(t *testing.T) {
 		{121, true},
 		{-121, false},
 		{10, false},
+		{123, false},
 	}
 
 	for testKey, testVal := range testSet {

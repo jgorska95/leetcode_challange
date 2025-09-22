@@ -9,26 +9,20 @@ func isPalindrome(x int) bool {
 		return false
 	}
 
-	xTab := []int{}
+	if x != 0 && x%10 == 0 {
+		return false
+	}
 
-	for x != 0 {
-		tmp := x % 10
-		xTab = append(xTab, tmp)
+	revX := 0
+
+	for x > revX {
+		revX = revX*10 + x%10
 		x = x / 10
 	}
 
-	xLen := len(xTab)
-
-	if xLen <= 1 {
+	if x == revX || x == revX/10 {
 		return true
 	}
 
-	for key, val := range xTab {
-		tmp := xLen - (key + 1)
-		if xTab[tmp] != val {
-			return false
-		}
-	}
-
-	return true
+	return false
 }
